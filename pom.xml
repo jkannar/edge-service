@@ -19,6 +19,7 @@
     <properties>
         <java.version>1.8</java.version>
         <spring-cloud.version>2021.0.1</spring-cloud.version>
+        <testcontainers.version>1.16.2</testcontainers.version>
     </properties>
 
     <dependencies>
@@ -47,6 +48,16 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.session</groupId>
+            <artifactId>spring-session-data-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${testcontainers.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
