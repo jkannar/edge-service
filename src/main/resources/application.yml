@@ -52,7 +52,7 @@ spring:
         - id: catalog-route
           uri: ${CATALOG_SERVICE_URL:http://localhost:9001}/books
           predicates:
-            - Path=/books/**
+            - Path=/books/**,/home/**
           filters:
             - name: CircuitBreaker
               args:

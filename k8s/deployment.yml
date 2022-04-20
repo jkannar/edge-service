@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: edge-service
+  labels:
+    app: edge-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: edge-service
+  template:
+    metadata:
+      labels:
+        app: edge-service
+    spec:
+      containers:
+        - name: edge-service
+          image: edge-service:0.0.1-SNAPSHOT
+          imagePullPolicy: Never
+          lifecycle:
+            preStop:
+              exec:
+                command: [ "sh", "-c", "sleep 5" ]
+          ports:
+            - containerPort: 9100
+          env:
+            - name: CATALOG_SERVICE_URL
+              value: http://catalog-service:9001
