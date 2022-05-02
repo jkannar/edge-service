@@ -50,7 +50,7 @@ spring:
               basedOnPreviousValue: false
       routes:
         - id: catalog-route
-          uri: ${CATALOG_SERVICE_URL:http://localhost:9001}/books
+          uri: ${CATALOG_SERVICE_URL:http://localhost:9001}
           predicates:
             - Path=/books/**,/home/**
           filters:
@@ -59,7 +59,7 @@ spring:
                 name: catalogCircuitBreaker
                 fallbackUri: forward:/catalog-fallback
         - id: order-route
-          uri: ${ORDER_SERVICE_URL:http://localhost:9002}/orders
+          uri: ${ORDER_SERVICE_URL:http://localhost:9002}
           predicates:
             - Path=/orders/**
           filters:
